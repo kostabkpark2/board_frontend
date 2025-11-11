@@ -10,22 +10,12 @@ function Save() {
         pass : "",
         contents : ""
     });
-    const onSubmit = (e)=> {
+    const onSubmit = async (e)=> {
         e.preventDefault();
         console.log(board);
-        axios.post("http://localhost:8000/boards", {board})
-        .then((res)=>{
-            console.log(res.status);
-        });
-        setBoard({
-            title : "",
-            writer : "",
-            pass : "",
-            contents : ""
-            }); 
-        if(res.status == 201) {
-            navigate("/list");
-        }
+        const res = await axios.post("http://localhost:8000/boards", {board})     
+        console.log(res.status);
+        if(res.status == 201) navigate("/list");
     };
     const onChange = (e) => {
         const {name, value} = e.target;
