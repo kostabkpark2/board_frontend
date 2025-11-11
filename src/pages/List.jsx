@@ -29,7 +29,7 @@ function List() {
                     </tr>
                 </thead>
                 <tbody>
-                    {list.map((board)=>(
+                    {list.map((board)=> (
                         <tr key={board.id}>
                             <td>{board.id}</td>
                             <td>
